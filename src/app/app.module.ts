@@ -10,6 +10,16 @@ import { EstudiosComponent } from './componentes/estudios/estudios.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+import {Routes, RouterModule, Router} from '@angular/router';
+
+const routes: Routes = [
+  {path: '', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent},
+  {path: 'index', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent},
+  {path: 'estudios', title: 'Estudios - Juan Pablo Favale', component: EstudiosComponent},
+  {path: 'habilidades', title: 'Habilidades - Juan Pablo Favale', component: HabilidadesComponent},
+  {path: 'proyectos', title: 'Proyectos - Juan Pablo Favale', component: ProyectosComponent},
+  {path: '**', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent}
+];
 
 @NgModule({
   declarations: [
@@ -24,8 +34,10 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
