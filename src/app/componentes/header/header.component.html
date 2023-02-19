@@ -1,0 +1,61 @@
+<div id="inicia" class="sesion">
+    <form action="">
+      <h3>Inicio de Sesion</h3>
+      <div></div>
+      <a class="cerrar" href="#">x</a>
+      <input class="campo" type="text" id="user" name="user" placeholder="Usuario">
+      <input class="campo" type="password" id="password" name="password" placeholder="Contraseña">
+      <a onclick="iniciar()" href="#" class="btn btn-success iniciar">Ingresar</a>
+      <p>¿Aun no tiene una cuenta? <a href="#registra">Registrese!</a></p>
+      <div></div>
+    </form>
+  </div>
+  <div id="registra" class="sesion">
+    <form action="">
+      <h3>Nuevo Usuario</h3>
+      <div></div>
+      <a class="cerrar" href="#">x</a>
+      <input class="campo" type="text" id="user-new" name="user" placeholder="Usuario">
+      <input class="campo" type="password" id="password-new" name="password" placeholder="Contraseña">
+      <input class="campo" type="email" id="email-new" name="email" placeholder="Email">
+      <input class="campo" type="number" id="telefono-new" name="telefono" placeholder="Telefono">
+      <input class="btn btn-success" type="button" value="Registrarse">
+      <p>¿Ya tiene una cuenta? <a href="#inicia">Inicie Sesion!</a></p>
+      <div></div>
+    </form>
+  </div>
+  <header>
+    <!-- place navbar here -->
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa"><img
+            class="logo" src="./assets/img/AP.png" alt="logo">Argentina Programa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./estudios.html">Estudios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./habilidades.html">Habilidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./proyectos.html">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-success reg" href="#registra">Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-success ini" href="#inicia">Iniciar Sesion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

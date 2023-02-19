@@ -1,1 +1,422 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    min-height: 7vh;
+    background: linear-gradient(green, yellowgreen);
+}
+
+main{
+    min-height: 88vh;
+}
+
+footer{
+    min-height: 5vh;
+    background-color: #007c0073;
+    background: linear-gradient(yellowgreen, green);
+}
+
+footer ul{
+    list-style: none;
+}
+
+footer i{
+    cursor: pointer;
+    color: #000000;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+.bi-facebook:hover{
+    color: blue;
+}
+
+.bi-whatsapp:hover{
+    color: #43fd62;
+}
+
+.bi-instagram:hover{
+    color: fuchsia;
+}
+
+.bi-linkedin:hover{
+    color: #3d3de9;
+}
+
+.bi-github:hover{
+    color: white;
+}
+
+.bi-phone:hover{
+    color: red;
+}
+
+.bi-envelope-at:hover{
+    color: chocolate;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.sesion:target{
+    visibility: visible;
+    background-color: #7ca179cc;
+}
+
+.sesion:target form{
+    transition: all .5s;
+    transform: scale(1);
+}
+
+.sesion{
+    transition: all .5s;
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000000;
+    border: 2px solid;
+    z-index: 100;
+}
+
+form{
+    transition: all .0s;
+    transform: scale(0);
+    position: absolute;
+    width: 250px;
+    background-color: #e7e0e0;
+    box-shadow: inset 0 0 15px #00ff00c7,
+    6px 6px 20px ,
+    -6px 6px 20px ,
+    6px -6px 20px ,
+    -6px -6px 20px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px;
+}
+
+form div{
+    border-top: 2px solid #00aa09;
+    margin: 10px 0;
+}
+
+form .cerrar{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    padding: 0;
+    cursor: pointer;
+    color: green;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+form input{
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+form input:first-of-type{
+    margin-top: 20px;
+}
+
+form [type=button], form .iniciar{
+    border: none;
+    border-radius: 5px;
+    box-shadow: 7px 7px 20px black;
+}
+
+form a{
+    display: block;
+    margin-bottom: 25px;
+}
+
+.campo{
+    width: 200px;
+}
+
+main{
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-img{
+    margin-top: 50px;
+    width: 150px;
+    border-radius: 15px;
+    border: 1px solid yellowgreen;
+    box-shadow: 0px 0px 50px yellowgreen;
+}
+
+.titulo{
+    margin-top: 50px;
+}
+
+p{
+    padding: 0 20px;
+}
+
+nav{
+    padding: auto !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+nav li{
+    text-align: center;
+}
+
+.nav-link:hover{
+    color: chartreuse !important;
+    transform: translate(0, -4px);
+    text-shadow: 0 6px 3px black;
+    transition: all .3s;
+}
+
+nav .btn{
+    margin: 5px;
+}
+
+.navbar-brand{
+    color: white !important;
+    display: flex;
+    font-size: 15px !important;
+}
+
+.logo{
+    width: 25px;
+    margin: 0px 5px;
+    vertical-align: middle;
+}
+
+.card{
+    border: 1px solid green !important;
+    box-shadow: 7px 7px 15px green;
+}
+
+.card-body{
+    background-color: #cf9 !important;
+}
+
+.card .img-fluid{
+    padding: 20px;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.estudios{
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.proyectos{
+    margin-top: 20px;
+}
+
+.habilidades{
+    margin-top: 10px;
+}
+
+main ul{
+    width: 270px;
+    padding: 0 !important;
+    list-style: none;
+}
+
+main li{
+    position: relative;
+    margin-top: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cd9;
+    box-shadow: inset 0px 0px 25px green;
+    border-radius: 10px;
+    height: 100px !important;
+}
+
+li div{
+    text-align: center;
+}
+
+li img{
+    width: 50px;
+}
+
+.progress{
+    width: 50px;
+}
+
+h6{
+    font-size: 12px !important;
+}
+
+.hab{
+    font-weight: 500;
+}
+
+.accordion{
+    width: 280px;
+}
+
+.accordion-body{
+    text-align: center;
+    padding: 30px !important;
+    padding-top: 50px !important;
+}
+
+.img-proy{
+    width: 240px !important;
+    box-shadow: 0 0 15px black;
+    margin-bottom: 10px;
+}
+
+.accordion-body p{
+    text-align: center;
+}
+
+.accordion-button{
+    background-color: #bf9 !important;
+    color: black !important;
+}
+
+.editar{
+    display: none;
+    cursor: pointer;
+    margin-top: -40px;
+    position: absolute;
+    right: 0;
+    margin-right: 8px;
+    width: 25px;
+}
+
+.edita-img{
+    display: none;
+    cursor: pointer;
+    width: 25px;
+    position: relative;
+    left: 55px;
+    top: -34px;
+}
+
+.ok{
+    display: none;
+    cursor: pointer;
+    margin-top: -40px;
+    position: absolute;
+    right: 0;
+    margin-right: 45px;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+}
+
+.cancel{
+    display: none;
+    cursor: pointer;
+    margin-top: -40px;
+    position: absolute;
+    right: 0;
+    margin-right: 8px;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+}
+
+.eliminar{
+    display: none;
+    margin: 5px !important;
+    padding: 0 !important;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    width: 25px !important;
+}
+
+.agregar{
+    display: none;
+    cursor: pointer;
+    margin-top: -40px;
+    position: absolute;
+    right: 0;
+    margin-right: 83px;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+}
+
+.eliminar-proyectos{
+    top: 0;
+    margin: 10px !important;
+}
+
+.eliminar-habilidades{
+    top: 0;
+}
+
+.visible{
+    display: initial;
+}
+
+.accordion-body{
+    position: relative;
+}
+
+@media screen and (min-width: 350px){
+    main ul{
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        max-width: 900px;
+        justify-content: center;
+        gap: 10px;
+    }
+    main li{
+        width: 270px;
+        margin-top: 0;
+    }
+    .accordion{
+        width: 80vw;
+        max-width: 900px;
+    }
+    .proyectos{
+        max-width: 900px;
+    }
+    .img-proy{
+        width: 70% !important;
+        max-width: 500px;
+    }
+}
+@media screen and (min-width: 768px){
+    nav .btn{
+        position: absolute;
+        margin: 0;
+        right: 15px;
+    }
+    .reg{
+        right: 140px !important;
+    }
+}
