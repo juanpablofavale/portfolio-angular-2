@@ -5,6 +5,26 @@
 <h1>Proyectos</h1>
 <div class="proyectos">
   <div class="accordion" id="accordionExample">
+    <div *ngFor="let proy of proyectos; index as i" class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
+          aria-expanded="true" aria-controls="collapseOne">
+          {{proy.nombre}}
+        </button>
+      </h2>
+      <div [attr.id]="'collapse' + i" [ngClass]="{'show': i == 0 }" class="accordion-collapse collapse" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <img class="eliminar eliminar-proyectos" src="./assets/img/eliminar1.png" alt="" onclick="eliminar()">
+          <img class="img-proy" [src]="proy.imagen" alt="">
+          <p>{{proy.descripcion}}
+          </p>
+          <a class="btn btn-success" [href]="proy.enlace" target="_blank">Ir al
+            sitio</a>
+        </div>
+      </div>
+    </div>
+    <!-- 
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -119,5 +139,6 @@
         </div>
       </div>
     </div>
+    -->
   </div>
 </div>

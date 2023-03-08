@@ -4,6 +4,18 @@
 <img onclick="cancel()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
 <h1>Estudios</h1>
 <div class="estudios">
+
+    <div *ngFor="let est of estudios" class="card" style="width: 250px;">
+        <img class="eliminar" src="./assets/img/eliminar1.png" alt="" onclick="eliminar()">
+        <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{est.nombreinstitucion}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{est.titulo}}</h6>
+            <p class="card-text">{{est.fechadesde}} - {{est.fechahasta}}</p>
+        </div>
+    </div>
+
+    <!--
     <div class="card" style="width: 250px;">
         <img class="eliminar" src="./assets/img/eliminar1.png" alt="" onclick="eliminar()">
         <img src="./assets/img/16.png" class="img-fluid rounded-start" alt="">
@@ -40,4 +52,5 @@
             <p class="card-text">2022 - 2023</p>
         </div>
     </div>
+    -->
 </div>

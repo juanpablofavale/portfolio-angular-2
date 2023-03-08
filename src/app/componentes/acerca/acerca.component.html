@@ -2,8 +2,8 @@
 <img onclick="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" height="0">
 <img onclick="ok()" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30">
 <img onclick="cancel()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
-<h1 class="text-center">Juan Pablo Favale</h1>
-<img class="profile-img" src="./assets/img/Perfil1.jpg" alt="foto de perfil">
+<h1 class="text-center">{{persona.nombre}}</h1>
+<img class="profile-img" [src]="persona.imgperfil" alt="foto de perfil">
 <img onclick="" id="edita-img" class="edita-img" src="./assets/img/lapiz.png" alt="" width="30">
-<h2 class="titulo">Acerca de</h2>
-<p>Tecnico en Informatica Personal y Profesional con Especializacion en Diseño Web Full Stack Developer Jr.</p>
+<h2 class="titulo">{{persona.subtitulo}}</h2>
+<p>{{persona.acerca}}</p>

@@ -10,7 +10,8 @@ import { EstudiosComponent } from './componentes/estudios/estudios.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
-import {Routes, RouterModule, Router} from '@angular/router';
+import { Routes, RouterModule, Router} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 const routes: Routes = [
   {path: '', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
   ],
   exports: [RouterModule],
   providers: [],
