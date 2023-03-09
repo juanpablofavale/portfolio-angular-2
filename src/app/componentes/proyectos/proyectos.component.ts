@@ -23,7 +23,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   borrar(id: Number): void{
-    this.proyectosService.deleteProyectos(id).subscribe(data => {
+    this.proyectosService.deleteProyecto(id).subscribe(data => {
       this.leerDatos()
     })
   }

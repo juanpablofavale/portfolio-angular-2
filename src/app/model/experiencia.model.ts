@@ -3,11 +3,11 @@ export class experiencia{
     imgLogo: String;
     nombreempresa: String;
     puesto: String;
-    fechadesde: Date;
-    fechahasta: Date;
+    fechadesde: String;
+    fechahasta: String;
     personaid: Number;
 
-    constructor(id: Number, imglogo: String, nombreempresa: String, puesto: String, fechadesde: Date, fechahasta: Date, personaid: Number){
+    constructor(id: Number, imglogo: String, nombreempresa: String, puesto: String, fechadesde: String, fechahasta: String, personaid: Number){
         this.id = id;
         this.imgLogo = imglogo;
         this.nombreempresa = nombreempresa;

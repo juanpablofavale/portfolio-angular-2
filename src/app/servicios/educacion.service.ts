@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { educacion } from '../model/educacion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,13 @@ export class EducacionService {
 
   public deleteEducaciones(id: Number): Observable<any>{
     return this.http.delete(this.URL + "/borrar/" + id);
+  }
+
+  public createEducacion(educacion: educacion): Observable<any>{
+    return this.http.post(this.URL + "/crear", educacion);
+  }
+
+  public updateEducacion(educacion: educacion): Observable<any>{
+    return this.http.put(this.URL + "/editar", educacion);
   }
 }

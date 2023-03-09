@@ -22,8 +22,7 @@ export class HabilidadesComponent implements OnInit {
   }
 
   borrar(id: Number): void{
-    console.log(id);
-    this.habilidadesService.deleteTecnologias(id).subscribe(data => {
+    this.habilidadesService.deleteTecnologia(id).subscribe(data => {
       this.leerDatos();
     });
     }

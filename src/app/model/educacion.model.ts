@@ -3,11 +3,11 @@ export class educacion{
     imglogo: String;
     nombreinstitucion: String;
     titulo: String;
-    fechadesde: Date;
-    fechahasta: Date;
+    fechadesde: String;
+    fechahasta: String;
     personaint: Number;
 
-    constructor(id: Number, imglogo: String, nombreinstitucion: String, titulo: String, fechadesde: Date, fechahasta: Date, personaint: Number){
+    constructor(id: Number, imglogo: String, nombreinstitucion: String, titulo: String, fechadesde: String, fechahasta: String, personaint: Number){
         this.id = id;
         this.imglogo = imglogo;
         this.nombreinstitucion = nombreinstitucion;
