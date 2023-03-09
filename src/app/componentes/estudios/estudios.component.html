@@ -6,7 +6,7 @@
 <div class="estudios">
 
     <div *ngFor="let est of estudios" class="card" style="width: 250px;">
-        <img (click)="borrar(est.id)" class="eliminar visible" src="./assets/img/eliminar1.png" alt="">
+        <img (click)="borrar(est)" class="eliminar visible" src="./assets/img/eliminar1.png" alt="">
         <img (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png" alt="">
         <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
         <div class="card-body">

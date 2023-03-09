@@ -21,9 +21,32 @@ export class HabilidadesComponent implements OnInit {
     })
   }
 
-  borrar(id: Number): void{
-    this.habilidadesService.deleteTecnologia(id).subscribe(data => {
-      this.leerDatos();
-    });
+  agregar(){
+    this.habilidades.push(new tecnologia(0,"Nombre", "", 50, 1));
+  }
+
+  guardar(habilidades: tecnologia){
+    habilidades.nombre = document.getElementById("nomhabilidad"+habilidades.id)!.innerText;
+    habilidades.porcentaje = Number.parseInt(document.getElementById("porchabilidad"+habilidades.id)!.innerText);
+    if (habilidades.id!=0){
+      this.habilidadesService.updateTecnologia(habilidades).subscribe(data =>{
+        this.leerDatos()
+      })
+    }else{
+      this.habilidadesService.createTecnologia(habilidades).subscribe(data =>{
+        this.leerDatos()
+      })
+    }
+  }
+
+  borrar(tecnologia: tecnologia): void{
+    if(tecnologia.id!=0){
+      this.habilidadesService.deleteTecnologia(tecnologia.id).subscribe(data => {
+        this.leerDatos();
+      });
+    }else{
+      let indice = this.habilidades.findIndex((tecno: tecnologia) => tecno==tecnologia)
+      this.habilidades.splice(indice,1)
+    }
     }
   }

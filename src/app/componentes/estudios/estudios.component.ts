@@ -42,13 +42,14 @@ export class EstudiosComponent implements OnInit {
     }
   }
 
-  borrar(id: Number): void{
-    if(id!=0){
-      this.estudiosService.deleteEducaciones(id).subscribe(data =>{
+  borrar(estudio: educacion): void{
+    if(estudio.id!=0){
+      this.estudiosService.deleteEducaciones(estudio.id).subscribe(data =>{
         this.leerDatos()
       })
     }else{
-      this.estudios.pop()
+      let indice = this.estudios.findIndex((est: educacion) => est==estudio)
+      this.estudios.splice(indice,1)
     }
   }
 }

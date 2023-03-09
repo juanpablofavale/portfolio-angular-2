@@ -303,17 +303,15 @@ h6{
 }
 
 .editar{
-    display: none;
     cursor: pointer;
-    margin-top: -40px;
+    margin-top: -33px;
     position: absolute;
-    right: 0;
+    right: 7px;
     margin-right: 8px;
     width: 25px;
 }
 
 .edita-img{
-    display: none;
     cursor: pointer;
     width: 25px;
     position: relative;
@@ -322,7 +320,6 @@ h6{
 }
 
 .ok{
-    display: none;
     cursor: pointer;
     margin-top: -40px;
     position: absolute;
@@ -334,7 +331,6 @@ h6{
 }
 
 .cancel{
-    display: none;
     cursor: pointer;
     margin-top: -40px;
     position: absolute;
@@ -346,27 +342,30 @@ h6{
 }
 
 .eliminar{
-    display: none;
     margin: 5px !important;
     padding: 0 !important;
     cursor: pointer;
     position: absolute;
     right: 0;
     width: 25px !important;
+    top: 0;
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.568);
+    border-radius: 50%;
 }
 
 .guardar{
-    display: none;
     margin: 5px !important;
     padding: 0 !important;
     cursor: pointer;
     position: absolute;
     right: 25px;
     width: 25px !important;
+    top: 0;
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.568);
+    border-radius: 50%;
 }
 
 .agregar{
-    display: none;
     cursor: pointer;
     margin-top: -40px;
     position: absolute;
@@ -378,16 +377,7 @@ h6{
 }
 
 .eliminar-proyectos{
-    top: 0;
     margin: 10px !important;
-}
-
-.eliminar-habilidades{
-    top: 0;
-}
-
-.visible{
-    display: initial;
 }
 
 .accordion-body{

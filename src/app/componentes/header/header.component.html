@@ -3,9 +3,9 @@
       <h3>Inicio de Sesion</h3>
       <div></div>
       <a class="cerrar" href="#">x</a>
-      <input class="campo" type="text" id="user" name="user" placeholder="Usuario">
+      <input [(ngModel)]="usrName" class="campo" type="text" id="user" name="user" placeholder="Usuario">
       <input class="campo" type="password" id="password" name="password" placeholder="Contraseña">
-      <a onclick="iniciar()" href="#" class="btn btn-success iniciar">Ingresar</a>
+      <a (click)="iniciar(usrName)" href="#" class="btn btn-success iniciar">Ingresar</a>
       <p>¿Aun no tiene una cuenta? <a href="#registra">Registrese!</a></p>
       <div></div>
     </form>
