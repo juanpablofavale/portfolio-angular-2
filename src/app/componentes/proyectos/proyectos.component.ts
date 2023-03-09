@@ -13,10 +13,18 @@ export class ProyectosComponent implements OnInit {
   constructor(public proyectosService: ProyectoService) { }
 
   ngOnInit(): void {
+    this.leerDatos()
+  }
+  
+  leerDatos(){
     this.proyectosService.getProyectos().subscribe(data => {
       this.proyectos = data
-      console.table(this.proyectos)
     })
   }
 
+  borrar(id: Number): void{
+    this.proyectosService.deleteProyectos(id).subscribe(data => {
+      this.leerDatos()
+    })
+  }
 }

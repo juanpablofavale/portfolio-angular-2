@@ -12,9 +12,19 @@ export class HabilidadesComponent implements OnInit {
   constructor(public habilidadesService: TecnologiaService) { }
 
   ngOnInit(): void {
+    this.leerDatos()
+  }
+
+  leerDatos(): void{
     this.habilidadesService.getTecnologias().subscribe(data => {
       this.habilidades = data
     })
   }
 
-}
+  borrar(id: Number): void{
+    console.log(id);
+    this.habilidadesService.deleteTecnologias(id).subscribe(data => {
+      this.leerDatos();
+    });
+    }
+  }

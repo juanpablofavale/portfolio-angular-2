@@ -6,7 +6,7 @@
 <div class="habilidades">
   <ul>
     <li *ngFor="let hab of habilidades">
-      <img class="eliminar eliminar-habilidades" src="./assets/img/eliminar1.png" alt="" onclick="eliminar()">
+      <img (click)="borrar(hab.id)" class="eliminar eliminar-habilidades visible" src="./assets/img/eliminar1.png" alt="">
       <div><img [src]="hab.imglogo" alt=""></div>
       <div class="hab">{{hab.nombre}}</div>
       <div>

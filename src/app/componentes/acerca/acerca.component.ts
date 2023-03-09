@@ -12,9 +12,12 @@ export class AcercaComponent implements OnInit {
   constructor(public personaService: PersonaService) { }
 
   ngOnInit(): void {
+    this.leerDatos()
+  }
+  
+  leerDatos(){
     this.personaService.getPersonas().subscribe(data => {
       this.persona = data[0]
-      console.table(this.persona)
     })
   }
 }

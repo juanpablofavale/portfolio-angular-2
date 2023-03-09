@@ -13,4 +13,8 @@ export class TecnologiaService {
   public getTecnologias(): Observable<any>{
     return this.http.get(this.URL + "/traer");
   }
+
+  public deleteTecnologias(id: Number): Observable<any>{
+    return this.http.delete<any>(this.URL + `/borrar/${id}`);
+  }
 }

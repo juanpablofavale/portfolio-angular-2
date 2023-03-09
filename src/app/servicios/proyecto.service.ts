@@ -13,4 +13,8 @@ export class ProyectoService {
   public getProyectos(): Observable<any>{
     return this.http.get(this.URL + "/traer");
   }
+
+  public deleteProyectos(id: Number): Observable<any>{
+    return this.http.delete(this.URL + "/borrar/" + id);
+  }
 }

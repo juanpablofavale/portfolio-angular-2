@@ -13,10 +13,17 @@ export class EstudiosComponent implements OnInit {
   constructor(public estudiosService: EducacionService) { }
 
   ngOnInit(): void {
+    this.leerDatos()
+  }
+  
+  leerDatos(){
     this.estudiosService.getEducaciones().subscribe(data => {
       this.estudios = data
-      console.table(this.estudios)
     })
   }
-
+  public borrar(id: Number): void{
+    this.estudiosService.deleteEducaciones(id).subscribe(data =>{
+      this.leerDatos()
+    })
+  }
 }

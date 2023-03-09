@@ -15,7 +15,7 @@
       <div [attr.id]="'collapse' + i" [ngClass]="{'show': i == 0 }" class="accordion-collapse collapse" aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <img class="eliminar eliminar-proyectos" src="./assets/img/eliminar1.png" alt="" onclick="eliminar()">
+          <img (click)="borrar(proy.id)" class="eliminar eliminar-proyectos visible" src="./assets/img/eliminar1.png" alt="">
           <img class="img-proy" [src]="proy.imagen" alt="">
           <p>{{proy.descripcion}}
           </p>
