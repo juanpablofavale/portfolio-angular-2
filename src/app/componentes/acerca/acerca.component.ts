@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { persona } from 'src/app/model/persona.model';
 import { LoginService } from 'src/app/servicios/login.service';
 import { PersonaService } from 'src/app/servicios/persona.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-acerca',
@@ -10,7 +12,7 @@ import { PersonaService } from 'src/app/servicios/persona.service';
 })
 export class AcercaComponent implements OnInit {
   persona: persona = new persona(0, "", "", "","", 0);
-  estaLogueado: boolean = false;
+  estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
 
 
@@ -18,7 +20,7 @@ export class AcercaComponent implements OnInit {
 
   ngOnInit(): void {
     this.leerDatos()
-    this.estaLogueado = this.login.getLogin("jpf");
+    this.estaLogueado.state = this.login.getLogin("jpf");
     //this.login.logOut("jpf")
   }
   

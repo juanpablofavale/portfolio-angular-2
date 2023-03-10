@@ -1,13 +1,12 @@
-<img onclick="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
-<img (click)="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" width="30">
-<img onclick="ok()" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30">
-<img onclick="cancel()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
+<img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
+<img *ngIf="estaLogueado.state && !estaEditando" (click)="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" width="30">
+<img *ngIf="estaEditando" (click)="cancelar()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
 <h1>Proyectos</h1>
 <div class="proyectos">
   <div class="accordion" id="accordionExample">
     <div *ngFor="let proy of proyectos; index as i" class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
-        <button contenteditable="true" class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
+        <button class="editable" class="accordion-button editable" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
           aria-expanded="true" aria-controls="collapseOne">
           {{proy.nombre}}
         </button>
@@ -15,10 +14,10 @@
       <div [attr.id]="'collapse' + i" [ngClass]="{'show': i == 0 }" class="accordion-collapse collapse" aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <img (click)="borrar(proy)" class="eliminar eliminar-proyectos visible" src="./assets/img/eliminar1.png" alt="">
-          <img (click)="guardar(proy)" class="eliminar guardar visible" src="./assets/img/ok1.png" alt="">
+          <img *ngIf="estaEditando" (click)="borrar(proy)" class="eliminar eliminar-proyectos" src="./assets/img/eliminar1.png" alt="">
+          <img *ngIf="estaEditando" (click)="guardar(proy)" class="guardar guardar-proyectos" src="./assets/img/ok1.png" alt="">
           <img class="img-proy" [src]="proy.imagen" alt="">
-          <p contenteditable="true">{{proy.descripcion}}
+          <p class="editable">{{proy.descripcion}}
           </p>
           <a class="btn btn-success" [href]="proy.enlace" target="_blank">Ir al
             sitio</a>

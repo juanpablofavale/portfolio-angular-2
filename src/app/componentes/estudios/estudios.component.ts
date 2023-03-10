@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { educacion } from 'src/app/model/educacion.model';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 
@@ -9,13 +10,26 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 })
 export class EstudiosComponent implements OnInit {
   estudios: educacion[] = [];
+  estaLogueado = AppComponent.logEado;
+  estaEditando: boolean = false;
 
   constructor(public estudiosService: EducacionService) { }
 
   ngOnInit(): void {
     this.leerDatos()
   }
-  
+
+  editar(){
+    this.estaEditando = true
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
+  }
+  cancelar(){
+    this.estaEditando = false
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
+    this.leerDatos()
+  }
   leerDatos(){
     this.estudiosService.getEducaciones().subscribe(data => {
       this.estudios = data

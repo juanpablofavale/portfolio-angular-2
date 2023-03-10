@@ -1,10 +1,10 @@
 <div id="acerca">
-<img [hidden]="!estaLogueado && estaEditando" (click)="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
-<img [hidden]="!estaEditando" (click)="guardar(persona)" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30">
-<img [hidden]="!estaEditando" (click)="cancelar(persona)" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
+<img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
+<img *ngIf="estaEditando" (click)="guardar(persona)" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30">
+<img *ngIf="estaEditando" (click)="cancelar(persona)" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
 <h1 id="nombreAcerca" class="text-center">{{persona.nombre}}</h1>
 <img class="profile-img" [src]="persona.imgperfil" alt="foto de perfil">
-<img [hidden]="!estaEditando" onclick="" id="edita-img" class="edita-img" src="./assets/img/lapiz.png" alt="" width="30">
+<img *ngIf="estaEditando" onclick="" id="edita-img" class="edita-img" src="./assets/img/lapiz.png" alt="" width="30">
 <h2 id="tituloAcerca" class="titulo">{{persona.subtitulo}}</h2>
 <p id="sobreMiAcerca">{{persona.acerca}}</p>
 </div>

@@ -1,17 +1,16 @@
-<img onclick="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
-<img (click)="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" width="30">
-<img onclick="ok()" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30">
-<img onclick="cancel()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
+<img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
+<img *ngIf="estaLogueado.state && !estaEditando" (click)="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" width="30">
+<img *ngIf="estaEditando" (click)="cancelar()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
 <h1>Habilidades</h1>
 <div class="habilidades">
   <ul>
     <li *ngFor="let hab of habilidades">
-      <img (click)="borrar(hab)" class="eliminar eliminar-habilidades" src="./assets/img/eliminar1.png" alt="">
-      <img (click)="guardar(hab)" class="guardar guardar-habilidades" src="./assets/img/ok1.png" alt="">
+      <img *ngIf="estaEditando" (click)="borrar(hab)" class="eliminar eliminar-habilidades" src="./assets/img/eliminar1.png" alt="">
+      <img *ngIf="estaEditando" (click)="guardar(hab)" class="guardar guardar-habilidades" src="./assets/img/ok1.png" alt="">
       <div><img [src]="hab.imglogo" alt=""></div>
-      <div [id]="'nomhabilidad' + hab.id" class="hab" contenteditable="true">{{hab.nombre}}</div>
+      <div [id]="'nomhabilidad' + hab.id" class="hab editable">{{hab.nombre}}</div>
       <div>
-        <h6 [id]="'porchabilidad' + hab.id" contenteditable="true">{{hab.porcentaje}}%</h6>
+        <h6 [id]="'porchabilidad' + hab.id" class="editable">{{hab.porcentaje}}%</h6>
         <div class="progress" role="progressbar" aria-label="Success striped example"
           aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar progress-bar-striped bg-success" [style]="'width:' + hab.porcentaje + '%'">

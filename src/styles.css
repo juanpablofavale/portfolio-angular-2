@@ -229,6 +229,8 @@ nav .btn{
     justify-content: center;
 }
 
+
+
 .proyectos{
     margin-top: 20px;
 }
@@ -365,12 +367,17 @@ h6{
     border-radius: 50%;
 }
 
+.guardar-proyectos{
+    top: 5px;
+    right: 30px;
+}
+
 .agregar{
     cursor: pointer;
     margin-top: -40px;
     position: absolute;
     right: 0;
-    margin-right: 83px;
+    margin-right: 45px;
     border-radius: 50%;
     padding: 5px;
     width: 40px;

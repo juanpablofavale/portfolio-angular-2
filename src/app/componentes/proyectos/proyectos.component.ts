@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { proyecto } from 'src/app/model/proyecto.model';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
 
@@ -9,13 +10,25 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
 })
 export class ProyectosComponent implements OnInit {
   proyectos: proyecto[] = [];
+  estaLogueado = AppComponent.logEado;
+  estaEditando: boolean = false;
 
   constructor(public proyectosService: ProyectoService) { }
 
   ngOnInit(): void {
     this.leerDatos()
   }
-  
+  editar(){
+    this.estaEditando = true
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
+  }
+  cancelar(){
+    this.estaEditando = false
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
+    this.leerDatos()
+  }
   leerDatos(){
     this.proyectosService.getProyectos().subscribe(data => {
       this.proyectos = data

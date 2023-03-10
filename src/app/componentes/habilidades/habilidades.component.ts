@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { tecnologia } from 'src/app/model/tecnologia.model';
 import { TecnologiaService } from 'src/app/servicios/tecnologia.service';
 
@@ -9,12 +10,25 @@ import { TecnologiaService } from 'src/app/servicios/tecnologia.service';
 })
 export class HabilidadesComponent implements OnInit {
   habilidades: tecnologia[] = []
+  estaLogueado = AppComponent.logEado;
+  estaEditando: boolean = false;
+
   constructor(public habilidadesService: TecnologiaService) { }
 
   ngOnInit(): void {
     this.leerDatos()
   }
-
+  editar(){
+    this.estaEditando = true
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
+  }
+  cancelar(){
+    this.estaEditando = false
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
+    this.leerDatos()
+  }
   leerDatos(): void{
     this.habilidadesService.getTecnologias().subscribe(data => {
       this.habilidades = data

@@ -12,6 +12,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { Routes, RouterModule, Router} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
+import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
   {path: '', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent},
