@@ -1,5 +1,5 @@
 <div id="inicia" class="sesion">
-    <form action="">
+    <form action="" onsubmit="return false">
       <h3>Inicio de Sesion</h3>
       <div></div>
       <a class="cerrar" href="#">x</a>
@@ -11,7 +11,7 @@
     </form>
   </div>
   <div id="registra" class="sesion">
-    <form action="">
+    <form action="" onsubmit="return false">
       <h3>Nuevo Usuario</h3>
       <div></div>
       <a class="cerrar" href="#">x</a>
@@ -49,10 +49,13 @@
               <a class="nav-link" routerLink="/proyectos">Proyectos</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success reg" href="#registra">Registro</a>
+              <a *ngIf="!estaLogueado.state" class="btn btn-success reg" href="#registra">Registro</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success ini" href="#inicia">Iniciar Sesion</a>
+              <a *ngIf="!estaLogueado.state" class="btn btn-success ini" href="#inicia">Iniciar Sesion</a>
+            </li>
+            <li *ngIf="estaLogueado.state" class="nav-item">
+              <a (click)="logOut()" class="btn btn-success cerr" href="#">Cerrar Sesion</a>
             </li>
           </ul>
         </div>

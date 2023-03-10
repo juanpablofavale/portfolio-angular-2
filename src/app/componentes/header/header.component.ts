@@ -10,10 +10,15 @@ import { environment } from 'src/environments/environment';
 })
 export class HeaderComponent implements OnInit {
   usrName = "jpf"
+  estaLogueado = AppComponent.logEado
   constructor(public login: LoginService) { }
 
   ngOnInit(): void {
     AppComponent.logEado.state = this.login.getLogin("jpf")
+  }
+
+  logOut(){
+    AppComponent.logEado.state = !this.login.logOut("jpf")
   }
 
   iniciar(usr: string){
