@@ -23,6 +23,12 @@ export class AcercaComponent implements OnInit {
     this.estaLogueado.state = this.login.getLogin("jpf");
     //this.login.logOut("jpf")
   }
+
+  change(persona: persona, event: any){
+    this.personaService.createImagen(event.target.files[0]).subscribe(data => {
+      persona.imgperfil = data.url;
+    })
+  }
   
   cancelar(persona: persona){
     this.estaEditando = false

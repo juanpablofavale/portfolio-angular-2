@@ -36,12 +36,13 @@ export class ProyectosComponent implements OnInit {
   }
 
   agregar(){
-    this.proyectos.push(new proyecto(0, "Nombre del proyecto", "", "Descripcion", "", 1));
+    this.proyectos.push(new proyecto(0, "Nombre del proyecto", "", "Descripcion", "Enlace", 1));
   }
 
   guardar(proyecto: proyecto){
-    proyecto.nombre = document.getElementById("nomhabilidad"+proyecto.id)!.innerText;
-    proyecto.descripcion = document.getElementById("porchabilidad"+proyecto.id)!.innerText;
+    proyecto.nombre = document.getElementById("nomproyecto" + proyecto.id)!.innerText;
+    proyecto.descripcion = document.getElementById("descproyecto" + proyecto.id)!.innerText;
+    proyecto.enlace = document.getElementById("link" + proyecto.id)!.innerText;
     if (proyecto.id!=0){
       this.proyectosService.updateProyecto(proyecto).subscribe(data =>{
         this.leerDatos()

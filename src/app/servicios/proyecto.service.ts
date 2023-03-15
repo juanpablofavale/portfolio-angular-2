@@ -10,6 +10,8 @@ import { proyecto } from '../model/proyecto.model';
 export class ProyectoService {
   //URL = 'http://localhost:8080/proyectos';
   URL = AppComponent.backURL;
+  CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dzkrvbxjc/image/upload";
+  CLOUDINARY_UPLOAD_PRESET = "snrmwxop";
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +29,11 @@ export class ProyectoService {
 
   public updateProyecto(proyecto: proyecto): Observable<any>{
     return this.http.put(this.URL + "/proyectos/editar", proyecto);
+  }
+  public createImagen(file:File): Observable<any>{
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", this.CLOUDINARY_UPLOAD_PRESET);
+    return this.http.post(this.CLOUDINARY_URL, formData);
   }
 }

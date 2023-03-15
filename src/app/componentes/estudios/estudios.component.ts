@@ -12,11 +12,20 @@ export class EstudiosComponent implements OnInit {
   estudios: educacion[] = [];
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
+  file: File = new File([], "");
+  nombreImg = "";
 
   constructor(public estudiosService: EducacionService) { }
-
+  
   ngOnInit(): void {
     this.leerDatos()
+  }
+
+  change(estudios: educacion, event: any){
+    this.file = event.target.files[0];
+    this.estudiosService.createImagen(this.file).subscribe(data => {
+      estudios.imglogo = data.url;
+    })
   }
 
   editar(){
@@ -45,6 +54,7 @@ export class EstudiosComponent implements OnInit {
     estudios.titulo = document.getElementById("titulo"+estudios.id)!.innerText;
     estudios.fechadesde = (document.getElementById("fecha"+estudios.id)!.innerText).substring(0,4);
     estudios.fechahasta = (document.getElementById("fecha"+estudios.id)!.innerText).substring(6,11);
+    console.table(estudios)
     if(estudios.id==0){
       this.estudiosService.createEducacion(estudios).subscribe(data =>{
         this.leerDatos()

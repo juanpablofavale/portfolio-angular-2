@@ -5,8 +5,8 @@
 <div class="proyectos">
   <div class="accordion" id="accordionExample">
     <div *ngFor="let proy of proyectos; index as i" class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="editable" class="accordion-button editable" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
+      <h2 [id]="'nomproyecto' + proy.id" class="accordion-header" id="headingOne">
+        <button class="accordion-button editable" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
           aria-expanded="true" aria-controls="collapseOne">
           {{proy.nombre}}
         </button>
@@ -17,10 +17,14 @@
           <img *ngIf="estaEditando" (click)="borrar(proy)" class="eliminar eliminar-proyectos" src="./assets/img/eliminar1.png" alt="">
           <img *ngIf="estaEditando" (click)="guardar(proy)" class="guardar guardar-proyectos" src="./assets/img/ok1.png" alt="">
           <img class="img-proy" [src]="proy.imagen" alt="">
-          <p class="editable">{{proy.descripcion}}
+          <p [id]="'descproyecto' + proy.id" class="editable">{{proy.descripcion}}
           </p>
           <a class="btn btn-success" [href]="proy.enlace" target="_blank">Ir al
             sitio</a>
+            <div *ngIf="estaEditando" class="links">
+              <p class="sub">Link:</p>
+              <p [id]="'link' + proy.id" contenteditable="true">{{proy.enlace}}</p>
+            </div>
         </div>
       </div>
     </div>

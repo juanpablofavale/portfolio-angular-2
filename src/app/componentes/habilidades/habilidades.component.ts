@@ -8,6 +8,7 @@ import { TecnologiaService } from 'src/app/servicios/tecnologia.service';
   templateUrl: './habilidades.component.html',
   styleUrls: ['./habilidades.component.css']
 })
+
 export class HabilidadesComponent implements OnInit {
   habilidades: tecnologia[] = []
   estaLogueado = AppComponent.logEado;
@@ -18,11 +19,19 @@ export class HabilidadesComponent implements OnInit {
   ngOnInit(): void {
     this.leerDatos()
   }
+
+  change(habilidades: tecnologia, event: any){
+    this.habilidadesService.createImagen(event.target.files[0]).subscribe(data => {
+      habilidades.imglogo = data.url;
+    })
+  }
+
   editar(){
     this.estaEditando = true
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
   }
+
   cancelar(){
     this.estaEditando = false
     const editables = document.querySelectorAll(".editable")

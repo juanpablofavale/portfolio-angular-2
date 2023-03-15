@@ -7,7 +7,12 @@
     <li *ngFor="let hab of habilidades">
       <img *ngIf="estaEditando" (click)="borrar(hab)" class="eliminar eliminar-habilidades" src="./assets/img/eliminar1.png" alt="">
       <img *ngIf="estaEditando" (click)="guardar(hab)" class="guardar guardar-habilidades" src="./assets/img/ok1.png" alt="">
-      <div><img [src]="hab.imglogo" alt=""></div>
+      <div class="div-img">
+        <img [src]="hab.imglogo" alt="">
+        <label *ngIf="estaEditando" [for]="'imgUploader'+hab.id" class="label-file">Cambiar
+          <input (change)="change(hab, $event)" type="file" [id]="'imgUploader'+hab.id">
+        </label>
+      </div>
       <div [id]="'nomhabilidad' + hab.id" class="hab editable">{{hab.nombre}}</div>
       <div>
         <h6 [id]="'porchabilidad' + hab.id" class="editable">{{hab.porcentaje}}%</h6>

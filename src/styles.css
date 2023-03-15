@@ -391,6 +391,37 @@ h6{
     position: relative;
 }
 
+.div-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-img img{
+    height: 55px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.habilidades input[type=file]{
+    display: none;
+    width: 1px;
+}
+
+.label-file{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.div-img-acerca{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
 @media screen and (min-width: 350px){
     main ul{
         margin-top: 10px;
@@ -425,5 +456,18 @@ h6{
     }
     .reg{
         right: 140px !important;
+    }
+    .links{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .links p{
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .links .sub{
+        padding-right: 5px;
+        text-align: center;
     }
 }
