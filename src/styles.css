@@ -437,6 +437,13 @@ h6{
     align-items: center;
 }
 
+.proyectos .imagen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (min-width: 350px){
     main ul{
         margin-top: 10px;
