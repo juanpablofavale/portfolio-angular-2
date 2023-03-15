@@ -9,6 +9,10 @@ header{
     background: linear-gradient(green, yellowgreen);
 }
 
+.modal-header{
+    background: linear-gradient(green, yellowgreen);
+}
+
 main{
     min-height: 88vh;
 }

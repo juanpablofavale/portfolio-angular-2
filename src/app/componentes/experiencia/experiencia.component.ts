@@ -29,6 +29,10 @@ export class ExperienciaComponent implements OnInit {
   }
 
   borrar(id: Number): void{
+    const respuesta = confirm("Seguro que desea eliminar el item?")
+    if(!respuesta){
+      return
+    }
     this.experienciaService.deleteExperiencia(id).subscribe(data => {
       this.leerDatos();
     });

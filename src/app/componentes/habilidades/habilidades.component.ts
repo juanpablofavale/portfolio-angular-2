@@ -35,6 +35,10 @@ export class HabilidadesComponent implements OnInit {
   }
 
   cancelar(){
+    const respuesta = confirm("Seguro que desea terminar la edicion?")
+    if(!respuesta){
+      return
+    }
     this.estaEditando = false
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
@@ -52,6 +56,10 @@ export class HabilidadesComponent implements OnInit {
   }
 
   guardar(habilidades: tecnologia){
+    const respuesta = confirm("Seguro que desea guardar las modificaciones?")
+    if(!respuesta){
+      return
+    }
     habilidades.nombre = document.getElementById("nomhabilidad"+habilidades.id)!.innerText;
     habilidades.porcentaje = Number.parseInt(document.getElementById("porchabilidad"+habilidades.id)!.innerText);
     if (habilidades.id!=0){
@@ -66,6 +74,10 @@ export class HabilidadesComponent implements OnInit {
   }
 
   borrar(tecnologia: tecnologia): void{
+    const respuesta = confirm("Seguro que desea eliminar la habilidad de nombre " + tecnologia.nombre + "?")
+    if(!respuesta){
+      return
+    }
     if(tecnologia.id!=0){
       this.habilidadesService.deleteTecnologia(tecnologia.id).subscribe(data => {
         this.leerDatos();

@@ -3,9 +3,51 @@
         <h1>Cargando Informacion...</h1>
     </div>
     <div *ngIf="!estaCargando">
-        <img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
-        <img *ngIf="estaEditando" (click)="guardar(persona)" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30">
-        <img *ngIf="estaEditando" (click)="cancelar(persona)" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
+        <img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar"
+            src="./assets/img/lapiz.png" alt="" width="30">
+
+        <img *ngIf="estaEditando" id="ok" class="ok" src="./assets/img/ok1.png" alt="" width="30" 
+            data-bs-toggle="modal" data-bs-target="#guardar-cambios">
+        <div class="modal fade" id="guardar-cambios" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar Cambios</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea guardar los cambios?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="guardar(persona)" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#guardar-cambios">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img *ngIf="estaEditando" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30"
+            data-bs-toggle="modal" data-bs-target="#terminar-edicion">
+        <div class="modal fade" id="terminar-edicion" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Terminar Edicion</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea terminar la edicion?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="cancelar(persona)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#terminar-edicion">Terminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h1 id="nombreAcerca" class="text-center">{{persona.nombre}}</h1>
         <div class="div-img-acerca">
             <img class="profile-img" [src]="persona.imgperfil" alt="foto de perfil">

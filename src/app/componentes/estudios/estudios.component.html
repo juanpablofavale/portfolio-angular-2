@@ -6,8 +6,27 @@
         src="./assets/img/lapiz.png" alt="" width="30">
     <img *ngIf="estaLogueado.state && !estaEditando" (click)="agregar()" id="agregar" class="agregar"
         src="./assets/img/agregar1.png" alt="" width="30">
-    <img *ngIf="estaEditando" (click)="cancelar()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt=""
-        width="30">
+    
+    <img *ngIf="estaEditando" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt=""
+        width="30" data-bs-toggle="modal" data-bs-target="#terminar-edicion">
+        <div class="modal fade" id="terminar-edicion" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Terminar Edicion</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea terminar la edicion?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="cancelar()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#terminar-edicion">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Terminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     <h1>Estudios</h1>
     <div id="estudios" class="estudios">
 
@@ -16,6 +35,7 @@
                 alt="">
             <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png"
                 alt="">
+
             <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
             <input *ngIf="estaEditando" class="file-img" (change)="change(est, $event)" type="file"
                 [id]="'imgUploader'+est.id">

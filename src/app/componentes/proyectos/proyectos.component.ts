@@ -34,6 +34,10 @@ export class ProyectosComponent implements OnInit {
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
   }
   cancelar(){
+    const respuesta = confirm("Seguro que desea terminar la edicion?")
+    if(!respuesta){
+      return
+    }
     this.estaEditando = false
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
@@ -51,6 +55,10 @@ export class ProyectosComponent implements OnInit {
   }
 
   guardar(proyecto: proyecto){
+    const respuesta = confirm("Seguro que desea guardar las modificaciones?")
+    if(!respuesta){
+      return
+    }
     proyecto.nombre = document.getElementById("nomproyecto" + proyecto.id)!.innerText;
     proyecto.descripcion = document.getElementById("descproyecto" + proyecto.id)!.innerText;
     proyecto.enlace = document.getElementById("link" + proyecto.id)!.innerText;
@@ -66,6 +74,10 @@ export class ProyectosComponent implements OnInit {
   }
 
   borrar(proyecto: proyecto): void{
+    const respuesta = confirm("Seguro que desea eliminar el proyecto de nombre " + proyecto.nombre + "?")
+    if(!respuesta){
+      return
+    }
     if(proyecto.id!=0){
       this.proyectosService.deleteProyecto(proyecto.id).subscribe(data => {
         this.leerDatos()
