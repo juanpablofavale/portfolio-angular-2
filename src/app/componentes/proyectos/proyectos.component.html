@@ -1,3 +1,7 @@
+<div id="cargando" *ngIf="estaCargando">
+  <h1>Cargando Informacion...</h1>
+</div>
+<div *ngIf="!estaCargando">
 <img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar" src="./assets/img/lapiz.png" alt="" width="30">
 <img *ngIf="estaLogueado.state && !estaEditando" (click)="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" width="30">
 <img *ngIf="estaEditando" (click)="cancelar()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
@@ -146,4 +150,5 @@
     </div>
     -->
   </div>
+</div>
 </div>

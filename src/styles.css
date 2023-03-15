@@ -430,6 +430,13 @@ h6{
     margin-bottom: 30px;
 }
 
+#cargando{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (min-width: 350px){
     main ul{
         margin-top: 10px;

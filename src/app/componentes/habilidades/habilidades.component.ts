@@ -13,6 +13,7 @@ export class HabilidadesComponent implements OnInit {
   habilidades: tecnologia[] = []
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
+  estaCargando = true;
 
   constructor(public habilidadesService: TecnologiaService) { }
 
@@ -41,6 +42,7 @@ export class HabilidadesComponent implements OnInit {
   leerDatos(): void{
     this.habilidadesService.getTecnologias().subscribe(data => {
       this.habilidades = data
+      this.estaCargando = false;
     })
   }
 

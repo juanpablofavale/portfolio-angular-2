@@ -1,22 +1,32 @@
-<img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar visible" src="./assets/img/lapiz.png" alt="" width="30">
-<img *ngIf="estaLogueado.state && !estaEditando" (click)="agregar()" id="agregar" class="agregar" src="./assets/img/agregar1.png" alt="" width="30">
-<img *ngIf="estaEditando" (click)="cancelar()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt="" width="30">
-<h1>Estudios</h1>
-<div id="estudios" class="estudios">
+<div id="cargando" *ngIf="estaCargando">
+    <h1>Cargando Informacion...</h1>
+</div>
+<div *ngIf="!estaCargando">
+    <img *ngIf="estaLogueado.state && !estaEditando" (click)="editar()" id="editar" class="editar visible"
+        src="./assets/img/lapiz.png" alt="" width="30">
+    <img *ngIf="estaLogueado.state && !estaEditando" (click)="agregar()" id="agregar" class="agregar"
+        src="./assets/img/agregar1.png" alt="" width="30">
+    <img *ngIf="estaEditando" (click)="cancelar()" id="cancel" class="cancel" src="./assets/img/eliminar2.png" alt=""
+        width="30">
+    <h1>Estudios</h1>
+    <div id="estudios" class="estudios">
 
-    <div *ngFor="let est of estudios" class="card" style="width: 250px;">
-        <img *ngIf="estaEditando" (click)="borrar(est)" class="eliminar visible" src="./assets/img/eliminar1.png" alt="">
-        <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png" alt="">
-        <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
-        <input *ngIf="estaEditando" class="file-img" (change)="change(est, $event)" type="file" [id]="'imgUploader'+est.id">
-        <div class="card-body">
-            <h5 [id]="'institucion'+est.id" class="card-title editable">{{est.nombreinstitucion}}</h5>
-            <h6 [id]="'titulo'+est.id" class="card-subtitle mb-2 text-muted editable">{{est.titulo}}</h6>
-            <p [id]="'fecha'+est.id" class="card-text editable">{{est.fechadesde}} - {{est.fechahasta}}</p>
+        <div *ngFor="let est of estudios" class="card" style="width: 250px;">
+            <img *ngIf="estaEditando" (click)="borrar(est)" class="eliminar visible" src="./assets/img/eliminar1.png"
+                alt="">
+            <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png"
+                alt="">
+            <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
+            <input *ngIf="estaEditando" class="file-img" (change)="change(est, $event)" type="file"
+                [id]="'imgUploader'+est.id">
+            <div class="card-body">
+                <h5 [id]="'institucion'+est.id" class="card-title editable">{{est.nombreinstitucion}}</h5>
+                <h6 [id]="'titulo'+est.id" class="card-subtitle mb-2 text-muted editable">{{est.titulo}}</h6>
+                <p [id]="'fecha'+est.id" class="card-text editable">{{est.fechadesde}} - {{est.fechahasta}}</p>
+            </div>
         </div>
-    </div>
 
-    <!--
+        <!--
     <div class="card" style="width: 250px;">
         <img class="eliminar" src="./assets/img/eliminar1.png" alt="" onclick="eliminar()">
         <img src="./assets/img/16.png" class="img-fluid rounded-start" alt="">
@@ -54,4 +64,5 @@
         </div>
     </div>
     -->
+    </div>
 </div>

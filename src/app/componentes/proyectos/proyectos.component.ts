@@ -12,6 +12,7 @@ export class ProyectosComponent implements OnInit {
   proyectos: proyecto[] = [];
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
+  estaCargando = true;
   file: File = new File([], "");
 
   constructor(public proyectosService: ProyectoService) { }
@@ -40,6 +41,7 @@ export class ProyectosComponent implements OnInit {
   leerDatos(){
     this.proyectosService.getProyectos().subscribe(data => {
       this.proyectos = data
+      this.estaCargando = false
     })
   }
 

@@ -14,6 +14,7 @@ export class AcercaComponent implements OnInit {
   persona: persona = new persona(0, "", "", "","", 0);
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
+  estaCargando = true;
 
 
   constructor(public personaService: PersonaService, public login: LoginService) { }
@@ -65,6 +66,7 @@ export class AcercaComponent implements OnInit {
   leerDatos(){
     this.personaService.getPersonas().subscribe(data => {
       this.persona = data[0]
+      this.estaCargando=false;
     })
   }
 

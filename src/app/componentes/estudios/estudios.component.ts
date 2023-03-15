@@ -12,6 +12,7 @@ export class EstudiosComponent implements OnInit {
   estudios: educacion[] = [];
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
+  estaCargando = true;
   file: File = new File([], "");
 
   constructor(public estudiosService: EducacionService) { }
@@ -41,6 +42,7 @@ export class EstudiosComponent implements OnInit {
   leerDatos(){
     this.estudiosService.getEducaciones().subscribe(data => {
       this.estudios = data
+      this.estaCargando = false
     })
   }
 
