@@ -17,6 +17,7 @@
           <img *ngIf="estaEditando" (click)="borrar(proy)" class="eliminar eliminar-proyectos" src="./assets/img/eliminar1.png" alt="">
           <img *ngIf="estaEditando" (click)="guardar(proy)" class="guardar guardar-proyectos" src="./assets/img/ok1.png" alt="">
           <img class="img-proy" [src]="proy.imagen" alt="">
+          <input *ngIf="estaEditando" class="file-img" (change)="change(proy, $event)" type="file" [id]="'imgUploader'+proy.id">
           <p [id]="'descproyecto' + proy.id" class="editable">{{proy.descripcion}}
           </p>
           <a class="btn btn-success" [href]="proy.enlace" target="_blank">Ir al

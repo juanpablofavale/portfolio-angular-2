@@ -32,8 +32,12 @@ export class AcercaComponent implements OnInit {
   
   cancelar(persona: persona){
     this.estaEditando = false
-    let acerca = document.getElementById("acerca");
-    acerca?.setAttribute("contenteditable", "false")
+    let nombre = document.getElementById("nombreAcerca");
+    let titulo = document.getElementById("tituloAcerca");
+    let sobremi = document.getElementById("sobreMiAcerca");
+    nombre?.setAttribute("contenteditable", "false")
+    titulo?.setAttribute("contenteditable", "false")
+    sobremi?.setAttribute("contenteditable", "false")
     document.getElementById("nombreAcerca")!.innerText = persona.nombre.toString();
     document.getElementById("tituloAcerca")!.innerText = persona.subtitulo.toString();
     document.getElementById("sobreMiAcerca")!.innerText = persona.acerca.toString();
@@ -41,8 +45,12 @@ export class AcercaComponent implements OnInit {
 
   editar(){
     this.estaEditando = true
-    let acerca = document.getElementById("acerca");
-    acerca?.setAttribute("contenteditable", "true")
+    let nombre = document.getElementById("nombreAcerca");
+    let titulo = document.getElementById("tituloAcerca");
+    let sobremi = document.getElementById("sobreMiAcerca");
+    nombre?.setAttribute("contenteditable", "true")
+    titulo?.setAttribute("contenteditable", "true")
+    sobremi?.setAttribute("contenteditable", "true")
   }
 
   logIn(usr: string){

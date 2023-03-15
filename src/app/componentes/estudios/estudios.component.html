@@ -8,7 +8,7 @@
         <img *ngIf="estaEditando" (click)="borrar(est)" class="eliminar visible" src="./assets/img/eliminar1.png" alt="">
         <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png" alt="">
         <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
-        <input *ngIf="estaEditando" (change)="change(est, $event)" type="file" [id]="'imgUploader'+est.id">
+        <input *ngIf="estaEditando" class="file-img" (change)="change(est, $event)" type="file" [id]="'imgUploader'+est.id">
         <div class="card-body">
             <h5 [id]="'institucion'+est.id" class="card-title editable">{{est.nombreinstitucion}}</h5>
             <h6 [id]="'titulo'+est.id" class="card-subtitle mb-2 text-muted editable">{{est.titulo}}</h6>

@@ -422,6 +422,14 @@ h6{
     gap: 30px;
 }
 
+.file-img{
+    margin: 10px;
+}
+
+.proyectos .file-img{
+    margin-bottom: 30px;
+}
+
 @media screen and (min-width: 350px){
     main ul{
         margin-top: 10px;

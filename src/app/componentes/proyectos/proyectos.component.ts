@@ -12,13 +12,21 @@ export class ProyectosComponent implements OnInit {
   proyectos: proyecto[] = [];
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
+  file: File = new File([], "");
 
   constructor(public proyectosService: ProyectoService) { }
 
   ngOnInit(): void {
     this.leerDatos()
   }
-  editar(){
+
+  change(proyectos: proyecto, event: any){
+    this.file = event.target.files[0];
+    this.proyectosService.createImagen(this.file).subscribe(data => {
+      proyectos.imagen = data.url;
+  })
+
+  }  editar(){
     this.estaEditando = true
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))

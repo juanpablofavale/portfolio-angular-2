@@ -13,7 +13,6 @@ export class EstudiosComponent implements OnInit {
   estaLogueado = AppComponent.logEado;
   estaEditando: boolean = false;
   file: File = new File([], "");
-  nombreImg = "";
 
   constructor(public estudiosService: EducacionService) { }
   
