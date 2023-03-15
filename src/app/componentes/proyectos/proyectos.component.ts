@@ -34,10 +34,6 @@ export class ProyectosComponent implements OnInit {
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
   }
   cancelar(){
-    const respuesta = confirm("Seguro que desea terminar la edicion?")
-    if(!respuesta){
-      return
-    }
     this.estaEditando = false
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))

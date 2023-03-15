@@ -22,18 +22,36 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" (click)="cancelar()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#terminar-edicion">Aceptar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Terminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </div>
         </div>
     <h1>Estudios</h1>
     <div id="estudios" class="estudios">
-
         <div *ngFor="let est of estudios" class="card" style="width: 250px;">
-            <img *ngIf="estaEditando" (click)="borrar(est)" class="eliminar visible" src="./assets/img/eliminar1.png"
-                alt="">
-            <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png"
+            <img *ngIf="estaEditando" class="eliminar visible" src="./assets/img/eliminar1.png"
+                alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#borrar-item' + est.id">
+                <div class="modal fade" [id]="'borrar-item' + est.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Educacion</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Seguro que desea eliminar el item? {{est.nombreinstitucion}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" (click)="borrar(est)" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#borrar-item' + est.id">Eliminar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png"
                 alt="">
 
             <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">

@@ -35,16 +35,13 @@ export class EstudiosComponent implements OnInit {
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
   }
   cancelar(){
-    const respuesta = confirm("Seguro que desea terminar la edicion?")
-    if(!respuesta){
-      return
-    }
     this.estaEditando = false
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
     this.leerDatos()
   }
   leerDatos(){
+    this.estaCargando = true
     this.estudiosService.getEducaciones().subscribe(data => {
       this.estudios = data
       this.estaCargando = false
@@ -56,8 +53,6 @@ export class EstudiosComponent implements OnInit {
   }
 
   guardar(estudios: educacion){
-    console.table(estudios);
-    
     estudios.nombreinstitucion = document.getElementById("institucion"+estudios.id)!.innerText;
     estudios.titulo = document.getElementById("titulo"+estudios.id)!.innerText;
     estudios.fechadesde = (document.getElementById("fecha"+estudios.id)!.innerText).substring(0,4);
@@ -74,10 +69,6 @@ export class EstudiosComponent implements OnInit {
   }
 
   borrar(estudio: educacion): void{
-    const respuesta = confirm("Seguro que desea eliminar la educacion con titulo " + estudio.titulo + "?")
-    if(!respuesta){
-      return
-    }
     if(estudio.id!=0){
       this.estudiosService.deleteEducaciones(estudio.id).subscribe(data =>{
         this.leerDatos()
