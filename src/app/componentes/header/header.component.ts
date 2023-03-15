@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class HeaderComponent implements OnInit {
   usrName = "jpf"
   estaLogueado = AppComponent.logEado
+  paginaActual = AppComponent.pagina
   constructor(public login: LoginService) { }
 
   ngOnInit(): void {

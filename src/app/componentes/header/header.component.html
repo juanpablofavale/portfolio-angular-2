@@ -2,11 +2,11 @@
     <form action="" onsubmit="return false">
       <h3>Inicio de Sesion</h3>
       <div></div>
-      <a class="cerrar" href="#">x</a>
+      <a class="cerrar" [href]="paginaActual[0] + '#'">x</a>
       <input [(ngModel)]="usrName" class="campo" type="text" id="user" name="user" placeholder="Usuario">
       <input class="campo" type="password" id="password" name="password" placeholder="Contraseña">
       <a (click)="iniciar(usrName)" href="#" class="btn btn-success iniciar">Ingresar</a>
-      <p>¿Aun no tiene una cuenta? <a href="#registra">Registrese!</a></p>
+      <p>¿Aun no tiene una cuenta? <a [href]="paginaActual[0] + '#registra'">Registrese!</a></p>
       <div></div>
     </form>
   </div>
@@ -14,13 +14,13 @@
     <form action="" onsubmit="return false">
       <h3>Nuevo Usuario</h3>
       <div></div>
-      <a class="cerrar" href="#">x</a>
+      <a class="cerrar" [href]="paginaActual[0] + '#'">x</a>
       <input class="campo" type="text" id="user-new" name="user" placeholder="Usuario">
       <input class="campo" type="password" id="password-new" name="password" placeholder="Contraseña">
       <input class="campo" type="email" id="email-new" name="email" placeholder="Email">
       <input class="campo" type="number" id="telefono-new" name="telefono" placeholder="Telefono">
       <input class="btn btn-success" type="button" value="Registrarse">
-      <p>¿Ya tiene una cuenta? <a href="#inicia">Inicie Sesion!</a></p>
+      <p>¿Ya tiene una cuenta? <a [href]="paginaActual[0] + '#inicia'">Inicie Sesion!</a></p>
       <div></div>
     </form>
   </div>
@@ -49,13 +49,13 @@
               <a class="nav-link" routerLink="/proyectos">Proyectos</a>
             </li>
             <li class="nav-item">
-              <a *ngIf="!estaLogueado.state" class="btn btn-success reg" href="#registra">Registro</a>
+              <a *ngIf="!estaLogueado.state" class="btn btn-success reg" [href]="paginaActual[0] + '#registra'">Registro</a>
             </li>
             <li class="nav-item">
-              <a *ngIf="!estaLogueado.state" class="btn btn-success ini" href="#inicia">Iniciar Sesion</a>
+              <a *ngIf="!estaLogueado.state" class="btn btn-success ini" [href]="paginaActual[0] + '#inicia'">Iniciar Sesion</a>
             </li>
             <li *ngIf="estaLogueado.state" class="nav-item">
-              <a (click)="logOut()" class="btn btn-success cerr" href="#">Cerrar Sesion</a>
+              <a (click)="logOut()" class="btn btn-success cerr" [href]="paginaActual[0] + '#'">Cerrar Sesion</a>
             </li>
           </ul>
         </div>

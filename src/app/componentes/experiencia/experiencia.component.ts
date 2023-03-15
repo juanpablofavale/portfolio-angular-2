@@ -16,6 +16,7 @@ export class ExperienciaComponent implements OnInit {
   constructor(public experienciaService: ExperienciaService) { }
 
   ngOnInit(): void {
+    AppComponent.pagina[0]="/experiencia/"
     this.leerDatos()
   }
   editar(){

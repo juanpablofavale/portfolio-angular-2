@@ -18,6 +18,7 @@ export class EstudiosComponent implements OnInit {
   constructor(public estudiosService: EducacionService) { }
   
   ngOnInit(): void {
+    AppComponent.pagina[0]="/estudios/"
     this.leerDatos()
   }
 

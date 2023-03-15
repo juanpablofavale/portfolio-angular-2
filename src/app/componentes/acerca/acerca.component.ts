@@ -21,6 +21,7 @@ export class AcercaComponent implements OnInit {
 
   ngOnInit(): void {
     this.leerDatos()
+    AppComponent.pagina[0]=""
     this.estaLogueado.state = this.login.getLogin("jpf");
     //this.login.logOut("jpf")
   }
