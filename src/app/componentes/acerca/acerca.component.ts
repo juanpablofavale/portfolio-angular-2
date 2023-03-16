@@ -68,6 +68,9 @@ export class AcercaComponent implements OnInit {
     this.personaService.getPersonas().subscribe(data => {
       this.persona = data[0]
       this.estaCargando=false;
+      if (this.estaEditando){
+        this.editar()
+      }
     })
   }
 
@@ -77,10 +80,8 @@ export class AcercaComponent implements OnInit {
     persona.acerca = document.getElementById("sobreMiAcerca")!.innerText;
     if(persona.id!=0){
       this.personaService.updatePersona(persona).subscribe(data =>{
-        this.leerDatos()
         this.estaEditando = false;
-        let acerca = document.getElementById("acerca");
-        acerca?.setAttribute("contenteditable", "false")
+        this.leerDatos()
           })
     }
   }}

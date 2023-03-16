@@ -5,7 +5,7 @@
       <a class="cerrar" [href]="paginaActual[0] + '#'">x</a>
       <input [(ngModel)]="usrName" class="campo" type="text" id="user" name="user" placeholder="Usuario">
       <input class="campo" type="password" id="password" name="password" placeholder="Contraseña">
-      <a (click)="iniciar(usrName)" href="#" class="btn btn-success iniciar">Ingresar</a>
+      <a (click)="iniciar(usrName)" [href]="paginaActual[0]" class="btn btn-success iniciar">Ingresar</a>
       <p>¿Aun no tiene una cuenta? <a [href]="paginaActual[0] + '#registra'">Registrese!</a></p>
       <div></div>
     </form>

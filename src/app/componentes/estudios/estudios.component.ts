@@ -45,6 +45,9 @@ export class EstudiosComponent implements OnInit {
     this.estudiosService.getEducaciones().subscribe(data => {
       this.estudios = data
       this.estaCargando = false
+      if (this.estaEditando){
+        this.editar()
+      }
     })
   }
 

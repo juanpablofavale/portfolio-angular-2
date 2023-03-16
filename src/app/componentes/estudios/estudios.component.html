@@ -51,8 +51,26 @@
                     </div>
                 </div>
         
-                <img *ngIf="estaEditando" (click)="guardar(est)" class="eliminar guardar visible" src="./assets/img/ok1.png"
-                alt="">
+                <img *ngIf="estaEditando" class="eliminar guardar visible" src="./assets/img/ok1.png"
+                alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#guardar-item' + est.id">
+                <div class="modal fade" [id]="'guardar-item' + est.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar Educacion</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Seguro que desea guardar los cambios realizados en {{est.nombreinstitucion}}?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" (click)="guardar(est)" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#guardar-item' + est.id">Guardar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             <img [src]="est.imglogo" class="img-fluid rounded-start" alt="">
             <input *ngIf="estaEditando" class="file-img" (change)="change(est, $event)" type="file"

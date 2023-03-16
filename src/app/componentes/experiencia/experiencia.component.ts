@@ -25,14 +25,13 @@ export class ExperienciaComponent implements OnInit {
   leerDatos(): void{
     this.experienciaService.getExperiencias().subscribe(data => {
       this.experiencia = data
+      if (this.estaEditando){
+        this.editar()
+      }
     })
   }
 
   borrar(id: Number): void{
-    const respuesta = confirm("Seguro que desea eliminar el item?")
-    if(!respuesta){
-      return
-    }
     this.experienciaService.deleteExperiencia(id).subscribe(data => {
       this.leerDatos();
     });

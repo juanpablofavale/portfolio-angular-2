@@ -31,10 +31,48 @@
   <div class="habilidades">
     <ul>
       <li *ngFor="let hab of habilidades">
-        <img *ngIf="estaEditando" (click)="borrar(hab)" class="eliminar eliminar-habilidades"
-          src="./assets/img/eliminar1.png" alt="">
-        <img *ngIf="estaEditando" (click)="guardar(hab)" class="guardar guardar-habilidades" src="./assets/img/ok1.png"
-          alt="">
+        <img *ngIf="estaEditando" class="eliminar eliminar-habilidades" src="./assets/img/eliminar1.png"
+        alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#borrar-item' + hab.id">
+        <div class="modal fade" [id]="'borrar-item' + hab.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Habilidad</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea eliminar el item? {{hab.nombre}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="borrar(hab)" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#borrar-item' + hab.id">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <img *ngIf="estaEditando" class="guardar guardar-habilidades" src="./assets/img/ok1.png"
+        alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#guardar-item' + hab.id">
+        <div class="modal fade" [id]="'guardar-item' + hab.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar Habilidad</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea guardar los cambios realizados en {{hab.nombre}}?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="guardar(hab)" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#guardar-item' + hab.id">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
         <div class="div-img">
           <img [src]="hab.imglogo" alt="">
           <label *ngIf="estaEditando" [for]="'imgUploader'+hab.id" class="label-file">Cambiar
