@@ -46,9 +46,6 @@ export class ProyectosComponent implements OnInit {
     this.proyectosService.getProyectos().subscribe(data => {
       this.proyectos = data
       this.estaCargando = false
-      if (this.estaEditando){
-        this.editar()
-      }
     })
   }
 
@@ -61,20 +58,18 @@ export class ProyectosComponent implements OnInit {
     proyecto.descripcion = document.getElementById("descproyecto" + proyecto.id)!.innerText;
     proyecto.enlace = document.getElementById("link" + proyecto.id)!.innerText;
     if (proyecto.id!=0){
-      this.proyectosService.updateProyecto(proyecto).subscribe(data =>{
-        this.leerDatos()
-      })
+      this.proyectosService.updateProyecto(proyecto).subscribe(data =>{})
     }else{
-      this.proyectosService.createProyecto(proyecto).subscribe(data =>{
-        this.leerDatos()
-      })
+      this.proyectosService.createProyecto(proyecto).subscribe(data =>{})
     }
   }
 
   borrar(proyecto: proyecto): void{
     if(proyecto.id!=0){
       this.proyectosService.deleteProyecto(proyecto.id).subscribe(data => {
-        this.leerDatos()
+      console.log(data)
+      let indice = this.proyectos.findIndex((proy: proyecto) => proy==proyecto)
+      this.proyectos.splice(indice,1)
       })
     }else{
       let indice = this.proyectos.findIndex((proy: proyecto) => proy==proyecto)

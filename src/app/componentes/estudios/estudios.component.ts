@@ -45,9 +45,6 @@ export class EstudiosComponent implements OnInit {
     this.estudiosService.getEducaciones().subscribe(data => {
       this.estudios = data
       this.estaCargando = false
-      if (this.estaEditando){
-        this.editar()
-      }
     })
   }
 
@@ -61,21 +58,17 @@ export class EstudiosComponent implements OnInit {
     estudios.fechadesde = (document.getElementById("fecha"+estudios.id)!.innerText).substring(0,4);
     estudios.fechahasta = (document.getElementById("fecha"+estudios.id)!.innerText).substring(6,11);
     if(estudios.id==0){
-      this.estudiosService.createEducacion(estudios).subscribe(data =>{
-        this.leerDatos()
-      })
+      this.estudiosService.createEducacion(estudios).subscribe(data =>{})
     }else{
-      this.estudiosService.updateEducacion(estudios).subscribe(data =>{
-        this.leerDatos()
-      })
+      this.estudiosService.updateEducacion(estudios).subscribe(data =>{})
     }
   }
 
   borrar(estudio: educacion): void{
     if(estudio.id!=0){
-      this.estudiosService.deleteEducaciones(estudio.id).subscribe(data =>{
-        this.leerDatos()
-      })
+      this.estudiosService.deleteEducaciones(estudio.id).subscribe(data =>{})
+      let indice = this.estudios.findIndex((est: educacion) => est==estudio)
+      this.estudios.splice(indice,1)
     }else{
       let indice = this.estudios.findIndex((est: educacion) => est==estudio)
       this.estudios.splice(indice,1)
