@@ -80,7 +80,7 @@ export class AcercaComponent implements OnInit {
     persona.acerca = document.getElementById("sobreMiAcerca")!.innerText;
     if(persona.id!=0){
       this.personaService.updatePersona(persona).subscribe(data =>{
-        this.estaEditando = false;
+        this.cancelar(persona)
         this.leerDatos()
           })
     }

@@ -35,12 +35,16 @@ export class HabilidadesComponent implements OnInit {
   }
 
   cancelar(){
-    this.estaEditando = false
-    const editables = document.querySelectorAll(".editable")
-    editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
+    this.cancela()
     this.leerDatos()
   }
   
+  cancela(){
+    this.estaEditando = false
+    const editables = document.querySelectorAll(".editable")
+    editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
+  }
+
   leerDatos(): void{
     this.habilidadesService.getTecnologias().subscribe(data => {
       this.habilidades = data
@@ -56,17 +60,23 @@ export class HabilidadesComponent implements OnInit {
     habilidades.nombre = document.getElementById("nomhabilidad"+habilidades.id)!.innerText;
     habilidades.porcentaje = Number.parseInt(document.getElementById("porchabilidad"+habilidades.id)!.innerText);
     if (habilidades.id!=0){
-      this.habilidadesService.updateTecnologia(habilidades).subscribe(data =>{})
+      this.habilidadesService.updateTecnologia(habilidades).subscribe(data =>{
+        this.leerDatos()
+        this.cancela()
+        })
     }else{
-      this.habilidadesService.createTecnologia(habilidades).subscribe(data =>{})
+      this.habilidadesService.createTecnologia(habilidades).subscribe(data =>{
+        this.leerDatos()
+        this.cancela()
+        })
     }
   }
 
   borrar(tecnologia: tecnologia): void{
     if(tecnologia.id!=0){
-      this.habilidadesService.deleteTecnologia(tecnologia.id).subscribe(data => {});
-      let indice = this.habilidades.findIndex((tecno: tecnologia) => tecno==tecnologia)
-      this.habilidades.splice(indice,1)
+      this.habilidadesService.deleteTecnologia(tecnologia.id).subscribe(data => {
+        this.leerDatos()
+      });
     }else{
       let indice = this.habilidades.findIndex((tecno: tecnologia) => tecno==tecnologia)
       this.habilidades.splice(indice,1)

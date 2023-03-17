@@ -35,10 +35,13 @@ export class EstudiosComponent implements OnInit {
     editables.forEach(ed => ed.setAttribute("contenteditable", "true"))
   }
   cancelar(){
+    this.cancela()
+    this.leerDatos()
+  }
+  cancela(){
     this.estaEditando = false
     const editables = document.querySelectorAll(".editable")
     editables.forEach(ed => ed.setAttribute("contenteditable", "false"))
-    this.leerDatos()
   }
   leerDatos(){
     this.estaCargando = true
@@ -58,17 +61,23 @@ export class EstudiosComponent implements OnInit {
     estudios.fechadesde = (document.getElementById("fecha"+estudios.id)!.innerText).substring(0,4);
     estudios.fechahasta = (document.getElementById("fecha"+estudios.id)!.innerText).substring(6,11);
     if(estudios.id==0){
-      this.estudiosService.createEducacion(estudios).subscribe(data =>{})
+      this.estudiosService.createEducacion(estudios).subscribe(data =>{
+        this.leerDatos()
+        this.cancela()
+      })
     }else{
-      this.estudiosService.updateEducacion(estudios).subscribe(data =>{})
+      this.estudiosService.updateEducacion(estudios).subscribe(data =>{
+        this.leerDatos()
+        this.cancela()
+      })
     }
   }
 
   borrar(estudio: educacion): void{
     if(estudio.id!=0){
-      this.estudiosService.deleteEducaciones(estudio.id).subscribe(data =>{})
-      let indice = this.estudios.findIndex((est: educacion) => est==estudio)
-      this.estudios.splice(indice,1)
+      this.estudiosService.deleteEducaciones(estudio.id).subscribe(data =>{
+        this.leerDatos()
+      })
     }else{
       let indice = this.estudios.findIndex((est: educacion) => est==estudio)
       this.estudios.splice(indice,1)
