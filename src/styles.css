@@ -192,8 +192,13 @@ nav li{
     transition: all .3s;
 }
 
-nav .btn{
+nav .btn, nav .usr{
     margin: 5px;
+}
+
+nav .usr{
+    font-weight: bolder;
+    color: rgb(0, 65, 0);
 }
 
 .navbar-brand{
@@ -232,8 +237,6 @@ nav .btn{
     flex-wrap: wrap;
     justify-content: center;
 }
-
-
 
 .proyectos{
     margin-top: 20px;
@@ -479,6 +482,11 @@ h6{
         position: absolute;
         margin: 0;
         right: 15px;
+    }
+    nav .usr{
+        position: absolute;
+        margin-top: 8px;
+        right: 160px;
     }
     .reg{
         right: 140px !important;

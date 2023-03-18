@@ -4,11 +4,28 @@
       <div></div>
       <a class="cerrar" [href]="paginaActual[0] + '#'">x</a>
       <input [(ngModel)]="usrName" class="campo" type="text" id="user" name="user" placeholder="Usuario">
-      <input class="campo" type="password" id="password" name="password" placeholder="Contraseña">
-      <a (click)="iniciar(usrName)" [href]="paginaActual[0]" class="btn btn-success iniciar">Ingresar</a>
+      <input [(ngModel)]="usrPass" class="campo" type="password" id="password" name="password" placeholder="Contraseña">
+      <a (click)="iniciar(usrName, usrPass)" [href]="'#'+paginaActual[0]" class="btn btn-success iniciar">Ingresar</a>
       <div></div>
     </form>
   </div>
+  <div *ngIf="!errCred" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Usuario o Contraseña Incorrectos</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <!-- 
   <div id="registra" class="sesion">
     <form action="" onsubmit="return false">
@@ -54,10 +71,13 @@
                 <a *ngIf="!estaLogueado.state" class="btn btn-success reg" [href]="paginaActual[0] + '#registra'">Registro</a>
               </li>
             -->
-            <li class="nav-item">
-              <a *ngIf="!estaLogueado.state" class="btn btn-success ini" [href]="paginaActual[0] + '#inicia'">Iniciar Sesion</a>
+            <li *ngIf="!estaLogueado.state" class="nav-item">
+              <a class="btn btn-success ini" [href]="paginaActual[0] + '#inicia'">Iniciar Sesion</a>
             </li>
-            <li *ngIf="estaLogueado.state" class="nav-item">
+            <li *ngIf="estaLogueado.state">
+              <p class="usr">Usuario: {{usrName}}</p>
+            </li>
+            <li *ngIf="estaLogueado.state" class="nav-item openSession">
               <a (click)="logOut()" class="btn btn-success cerr" [href]="paginaActual[0] + '#'">Cerrar Sesion</a>
             </li>
           </ul>

@@ -30,6 +30,9 @@ export class UsuarioService {
   public updateUsuario(usuario: usuario): Observable<any>{
     return this.http.put(this.URL + "/usuarios/editar", usuario);
   }
+  public existeUsuario(usuario: usuario): Observable<any>{
+    return this.http.post(this.URL + "/usuarios/existe", usuario);
+  }
   public createImagen(file:File): Observable<any>{
     const formData = new FormData();
     formData.append("file", file);

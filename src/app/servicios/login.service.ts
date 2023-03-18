@@ -11,12 +11,17 @@ export class LoginService {
 
   constructor() { }
 
-  public getLogin(nomUsr: string): boolean{
-    let logged = false;
-    if(window.sessionStorage.getItem("logged")==nomUsr){
-      logged = true;
+  public getLogin(): any{
+    let estado = {
+      logged: false,
+      nombre: ""
     }
-    return logged;
+
+    if(window.sessionStorage.getItem("logged")){
+      estado.logged = true;
+      estado.nombre = window.sessionStorage.getItem("logged")!;
+    }
+    return estado;
   }
 
   public setLogin(nomUsr: string): boolean{

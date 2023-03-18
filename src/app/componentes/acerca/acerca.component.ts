@@ -16,13 +16,13 @@ export class AcercaComponent implements OnInit {
   estaEditando: boolean = false;
   estaCargando = true;
 
-
   constructor(public personaService: PersonaService, public login: LoginService) { }
 
   ngOnInit(): void {
     this.leerDatos()
     AppComponent.pagina[0]=""
-    this.estaLogueado.state = this.login.getLogin("jpf");
+    //let estado = this.login.getLogin();
+    //this.estaLogueado.state = estado.logged
     //this.login.logOut("jpf")
   }
 
