@@ -4,6 +4,7 @@ import { usuario } from 'src/app/model/usuario.model';
 import { LoginService } from 'src/app/servicios/login.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-header',
@@ -39,13 +40,34 @@ export class HeaderComponent implements OnInit {
     try {
       this.usuario.existeUsuario(us).subscribe(data=>{
         if (data.codigo==0){
+          let cerrar = document.getElementById("cerrar-form")
+          cerrar!.click()
           AppComponent.logEado.state = this.login.setLogin(usr)
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Bienvenido ' + usr + "!",
+            showConfirmButton: false,
+            timer: 1500
+          })
         }else if(data.codigo>0){
           this.usrName = ""
-          alert("Usuario o Contraseña incorrecta")
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Nombre de Usuario o Contraseña Incorrectos!',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }else{
           this.usrName = ""
-          console.log("Error inesperado")
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Error Inesperado al Intentar Iniciar Sesion',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       })
     } catch (error) {
