@@ -15,12 +15,12 @@ import { HttpClientModule } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
-  {path: '', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent},
+  {path: '', redirectTo: "/index", title: 'Portfolio - Juan Pablo Favale', pathMatch: "full"},
   {path: 'index', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent},
   {path: 'estudios', title: 'Estudios - Juan Pablo Favale', component: EstudiosComponent},
   {path: 'habilidades', title: 'Habilidades - Juan Pablo Favale', component: HabilidadesComponent},
   {path: 'proyectos', title: 'Proyectos - Juan Pablo Favale', component: ProyectosComponent},
-  {path: '**', title: 'Portfolio - Juan Pablo Favale', component: AcercaComponent}
+  {path: '**', redirectTo: "/index", title: 'Portfolio - Juan Pablo Favale', pathMatch: "prefix"}
 ];
 
 @NgModule({
