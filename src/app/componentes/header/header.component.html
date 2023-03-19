@@ -1,10 +1,11 @@
 <div id="inicia" class="sesion">
   <form action="" onsubmit="return false">
+    <input id="borrar-campos" type="reset" value="reset" hidden>
     <h3>Inicio de Sesion</h3>
     <div></div>
     <a id="cerrar-form" class="cerrar" [href]="paginaActual[0] + '#'">x</a>
       <input [(ngModel)]="usrName" class="campo" type="text" id="user" name="user" placeholder="Usuario">
-      <input [(ngModel)]="usrPass" class="campo" type="password" id="password" name="password" placeholder="Contraseña">
+      <input [(ngModel)]="usrPass" class="campo" type="password" id="password" name="password" placeholder="Contraseña" [value]="usrPass">
       <button (click)="iniciar(usrName, usrPass)" class="btn btn-success iniciar">Iniciar</button>
       <div></div>
     </form>

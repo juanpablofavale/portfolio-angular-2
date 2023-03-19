@@ -41,8 +41,6 @@ export class HeaderComponent implements OnInit {
       this.usuario.existeUsuario(us).subscribe(data=>{
         if (data.codigo==0){
           this.usrPass=""
-          let cerrar = document.getElementById("cerrar-form")
-          cerrar!.click()
           AppComponent.logEado.state = this.login.setLogin(usr)
           Swal.fire({
             position: 'center',
@@ -53,6 +51,7 @@ export class HeaderComponent implements OnInit {
           })
         }else if(data.codigo>0){
           this.usrName = ""
+          this.usrPass=""
           Swal.fire({
             position: 'center',
             icon: 'error',
@@ -60,7 +59,6 @@ export class HeaderComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-          this.usrPass=""
         }else{
           this.usrName = ""
           this.usrPass = ""
