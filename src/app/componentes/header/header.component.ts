@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
+          this.usrPass=""
         }else if(data.codigo>0){
           this.usrName = ""
           Swal.fire({
@@ -59,8 +60,10 @@ export class HeaderComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
+          this.usrPass=""
         }else{
           this.usrName = ""
+          this.usrPass=""
           Swal.fire({
             position: 'center',
             icon: 'error',
