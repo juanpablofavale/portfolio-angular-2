@@ -20,7 +20,7 @@ export class AcercaComponent implements OnInit {
 
   ngOnInit(): void {
     this.leerDatos()
-    AppComponent.pagina[0]=""
+    AppComponent.pagina[0]="/index"
     //let estado = this.login.getLogin();
     //this.estaLogueado.state = estado.logged
     //this.login.logOut("jpf")

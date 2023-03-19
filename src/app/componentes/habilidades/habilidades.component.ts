@@ -18,7 +18,7 @@ export class HabilidadesComponent implements OnInit {
   constructor(public habilidadesService: TecnologiaService) { }
 
   ngOnInit(): void {
-    AppComponent.pagina[0]="/habilidades/"
+    AppComponent.pagina[0]="/habilidades"
     this.leerDatos()
   }
 

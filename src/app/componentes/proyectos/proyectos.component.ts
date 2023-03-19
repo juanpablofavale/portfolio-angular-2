@@ -18,7 +18,7 @@ export class ProyectosComponent implements OnInit {
   constructor(public proyectosService: ProyectoService) { }
 
   ngOnInit(): void {
-    AppComponent.pagina[0]="/proyectos/"
+    AppComponent.pagina[0]="/proyectos"
     this.leerDatos()
   }
 
