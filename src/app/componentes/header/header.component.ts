@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
       this.usuario.existeUsuario(us).subscribe(data=>{
         if (data.codigo==0){
           const cerrar = document.getElementById("cerrar-form")
-          cerrar?.click()
+          cerrar!.click()
           this.usrPass=""
           AppComponent.logEado.state = this.login.setLogin(usr)
           Swal.fire({

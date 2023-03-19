@@ -433,6 +433,10 @@ h6{
     margin: 10px;
 }
 
+.imagen .file-img, .div-img-acerca input{
+    max-width: 80%;
+}
+
 .proyectos .file-img{
     margin-bottom: 30px;
 }
@@ -477,6 +481,7 @@ h6{
         max-width: 500px;
     }
 }
+
 @media screen and (min-width: 768px){
     nav .btn{
         position: absolute;
